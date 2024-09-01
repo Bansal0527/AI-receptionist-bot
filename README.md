@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```
 ### Set api key in .env
 ```
-copy .env.sample .env
+cp .env.sample .env
 ```
 Usage
 ```
