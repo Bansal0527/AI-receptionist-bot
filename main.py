@@ -59,7 +59,8 @@ async def main():
             print("AI: I didn't catch that. Is this an emergency or would you like to leave a message?")
             continue
 
-        is_emergency = await get_gemini_response(f"Identify if the given statement is an emergency or not? Return only 'yes' or 'no' nothing more. {user_input} ")
+        is_emergency = await get_gemini_response(f"Identify if in the given statement the user is in emergency or not? Return only 'yes' if the user is in emergency otherwise 'no'. nothing more. The statement is {user_input} ")
+        # print("isEmergency:", is_emergency)
         if "yes" in is_emergency.lower():
             print("AI: I understand this is an emergency. Can you please tell me what the emergency is?")
             emergency = input("User: ").strip()
@@ -104,7 +105,7 @@ async def main():
             break
 
         else:
-            clarification = await get_gemini_response(f"Can you help clarify the following statement: {user_input}")
+            clarification = await get_gemini_response(f"Can you help clarify the following statement: {user_input}. Resonse should be short and coincise.")
             print(f"AI: {clarification}")
 
 if __name__ == "__main__":
